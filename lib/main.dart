@@ -180,29 +180,30 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       resizeToAvoidBottomInset : false,
-      appBar: AppBar(
-        backgroundColor: Colors.red[800],
-        title: Center(
-            child: Text('Controle Remoto')
-        ),
-        actions: <Widget> [
-             PopupMenuButton<String>(
-              onSelected: choiceAction,
-              itemBuilder: (BuildContext context){
-                 return Constants.choices.map((String choice){
-                   return PopupMenuItem<String>(
-                    value: choice,
-                     child: Text(choice),
-                   );
-                 }).toList();
-               },
-             )
-         ],
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: Colors.red[800],
+      //   title: Center(
+      //       child: Text('Controle Remoto')
+      //   ),
+      //   actions: <Widget> [
+      //        PopupMenuButton<String>(
+      //         onSelected: choiceAction,
+      //         itemBuilder: (BuildContext context){
+      //            return Constants.choices.map((String choice){
+      //              return PopupMenuItem<String>(
+      //               value: choice,
+      //                child: Text(choice),
+      //              );
+      //            }).toList();
+      //          },
+      //        )
+      //    ],
+      // ),
 
       body: Stack(      //Stack para widgets sobrepostos
             children: [
               Container(
+                padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
                 child: WebView(
                   initialUrl: '$urlserver',
                   javascriptMode: JavascriptMode.unrestricted,
