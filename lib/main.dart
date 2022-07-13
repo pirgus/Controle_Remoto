@@ -97,8 +97,8 @@ class _MyHomePageState extends State<MyHomePage> {
     }});
   }
 
-  void choiceAction(String choice) {
-    if (choice == Constants.Adjusts) {
+  void choiceAction() { // tirei o parametro String choice
+    // if (choice == Constants.Adjusts) {
       showDialog(
           context: context,
           builder: (BuildContext context) {
@@ -134,7 +134,7 @@ class _MyHomePageState extends State<MyHomePage> {
           }
       );
 
-    }
+    // }
   }
 
   // void _setText() {
@@ -203,11 +203,23 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Stack(      //Stack para widgets sobrepostos
             children: [
               Container(
-                padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+                //padding: EdgeInsets.fromLTRB(20, 0, 20, 0), //deixando ocupar a tela todinha
                 child: WebView(
                   initialUrl: '$urlserver',
                   javascriptMode: JavascriptMode.unrestricted,
                 )
+              ),
+
+              Positioned(
+                top: h * 0.01,
+                right: w * 0.01,
+                child: ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.teal),
+                  ),
+                  onPressed: () {choiceAction();},
+                  child: Text("Mudar URL")
+              ),
               ),
 
 
